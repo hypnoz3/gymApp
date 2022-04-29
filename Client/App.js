@@ -8,17 +8,9 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from './src/core/theme';
 import { StatusBar } from 'expo-status-bar';
-import {
-  StartScreen,
-  LoginScreen,
-  RegisterScreen,
-  ResetPasswordScreen,
-  Dashboard,
-} from './src/Screens'
-import MyTabs from './src/components/BottomNavigation';
 
 
-const Stack = createStackNavigator()
+import RootNavigator from './src/components/RootNavigator';
 
 
 
@@ -27,7 +19,7 @@ export default function App() {
     
     <Provider theme={theme}>
       <NavigationContainer>
-      <MyTabs/>
+      <RootNavigator/>
       </NavigationContainer>
       <StatusBar style="light" />
       

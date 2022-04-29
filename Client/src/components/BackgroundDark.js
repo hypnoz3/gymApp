@@ -5,8 +5,9 @@ import { theme } from '../core/theme'
 
 export default function BackgroundDark({ children }) {
   return (
-    
+    <View style={styles.black}>
       <View style={styles.container}>{children}</View>
+      </View>
       
   )
 }
@@ -14,6 +15,7 @@ export default function BackgroundDark({ children }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    zIndex: -1,
     width: '100%',
     backgroundColor: theme.colors.surface,
 
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#101010"
-  },
-})
+    
+  }
+}
+)

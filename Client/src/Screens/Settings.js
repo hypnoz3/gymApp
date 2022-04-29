@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
-import { LinearGradient } from 'expo-linear-gradient';
 
 
 
-export default function Dashboard({ navigation }) {
+
+
+export default function Settings() {
   const [people, setPeople] = useState([
-    { name: 'Uusi treeni', id: '1' },
-    { name: 'Treenit', id: '2' },
-    { name: 'Tilastot', id: '3' },
-    { name: 'Asetukset', id: '4' }
+    { name: 'Teema', id: '1' },
+    { name: 'Info', id: '2' },
+  
     
   ]);
 
 
   return (
-
-        <FlatList 
+   <FlatList 
         style={styles.container}
         keyExtractor={(item) => item.id} 
         data={people} 
         renderItem={({ item }) => ( 
-        <Text style={styles.item}>{item.name}</Text>
+          <Text style={styles.item}>{item.name}</Text>
         )}
       />
-
-
-      
-   
 
   )
 }
@@ -36,7 +30,7 @@ export default function Dashboard({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100,
+    paddingTop: 50,
     paddingHorizontal: 10,
     width: '100%',
     backgroundColor: '#101010'

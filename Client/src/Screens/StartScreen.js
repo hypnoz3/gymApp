@@ -1,38 +1,66 @@
 import React from 'react'
-import Background from '../components/Background'
-import { ImageBackground, StyleSheet, KeyboardAvoidingView } from 'react-native'
-import Logo from '../components/Logo'
-import Header from '../components/Header'
-import Button from '../components/Button'
-import Paragraph from '../components/Paragraph'
+import { StyleSheet } from 'react-native'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
+
+const Tab = createMaterialBottomTabNavigator();
+
+import {
+    LoginScreen,
+    Dashboard,
+    Settings
+  } from '../Screens'
+
+
+  
 
 export default function StartScreen({ navigation }) {
   return (
-    <Background>
+      <Tab.Navigator
+        activeColor="black"
+        barStyle={{ backgroundColor: '#910c03' }}
+      >
+        <Tab.Screen
+          name="Profile"
+          component={Dashboard}
+          options={{
+            tabBarLabel: 'Dashboard',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="account" color={color} size={24} />
+            ),
+          }}
+        />
+        
+        <Tab.Screen
+          name="Settings"
+          component={Settings}
+          options={{
+            tabBarLabel: 'Settings',
+            tabBarIcon: ({ color }) => (
+              <Ionicons name="settings" color={color} size={24} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Logout"
+          component={LoginScreen}
+          options={{
+            tabBarLabel: 'Logout',
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons name="door" color={color} size={24} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
     
-      <Header style={styles.textWithShadow}>START HERE</Header>
-  
-      <Button
-        mode="contained"
-        onPress={() => navigation.navigate('LoginScreen')}
-      >
-        Login
-      </Button>
-      <Button
-        mode="outlined"
-        onPress={() => navigation.navigate('RegisterScreen')}
-      >
-        Sign Up
-      </Button>
-    </Background>
   )
 }
 
 const styles = StyleSheet.create({
   textWithShadow:{
-      textShadowColor: 'black',
-      textShadowOffset: {width: -1, height: 1},
-      textShadowRadius: 10,
+     
       fontSize: 30,
       color: 'white',
       fontWeight: "bold"

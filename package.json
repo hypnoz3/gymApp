@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
+    "expo-blur": "^11.0.0",
+    "react-native-vector-icons": "^9.1.0"
+  }
+}
